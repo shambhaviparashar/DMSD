@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}Shopping Cart{% endblock %}
+
+{% block active %}
+<div class="navbar-nav nav-tabs">
+    <a class="nav-link " aria-current="page" href="{{ url_for('home') }}">All Products</a>
+    <a class="nav-link " href="{{ url_for('laptop') }}">Laptop</a>
+    <a class="nav-link " href="{{ url_for('printer') }}">Printer</a>
+    <a class="nav-link " href="{{ url_for('desktop') }}">Desktop</a>
+  </div>
+  <div class="navbar-nav nav-tabs ms-auto">
+      <a class="nav-link " href="{{ url_for('history') }}">Purchase History</a>
+      <a class="nav-link active" href="{{ url_for('cart') }}">My Cart</a>
+      <a class="nav-link " href="{{ url_for('profile') }}">{{session.Email}}</a>
+      <a class="nav-link " href="{{ url_for('logout') }}">LogOut</a>
+</div>
+
+
+{% endblock %}
+
+
+{% block body %}
+<div class="container">
+  <table class="table table-striped">
+      <tr><th>Product Name</th><th>Quantity</th><th>Price</th><th>Total</th></tr>
+  
+      {% for key, value in display_cart.items() %}
+      <tr><td>{{value["name"]}}</td><td>{{value["qty"]}}</td><td>${{ "%.2f" % value["price"]}}</td><td>${{ "%.2f" % (value["qty"] * value["price"])}}</td></tr>
+      {% endfor %}
+  
+  </table>
+  <h3>Total: ${{ "%.2f" % total }} </h3>
+  
+  
+  <a href="/address" style="background-color: rgb(164, 25, 164)" class="btn btn-large btn-primary">Make Payment</a>
+  
+  </div>
+
+{% endblock %}

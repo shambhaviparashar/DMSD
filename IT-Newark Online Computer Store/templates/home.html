@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block active %}
+<div class="navbar-nav nav-tabs">
+    <a class="nav-link active" aria-current="page" href="{{ url_for('home') }}">All Products</a>
+    <a class="nav-link " href="{{ url_for('laptop') }}">Laptop</a>
+    <a class="nav-link " href="{{ url_for('printer') }}">Printer</a>
+    <a class="nav-link " href="{{ url_for('desktop') }}">Desktop</a>
+  </div>
+  <div class="navbar-nav nav-tabs ms-auto">
+      <a class="nav-link " href="{{ url_for('history') }}">Purchase History</a>
+      <a class="nav-link " href="{{ url_for('cart') }}">My Cart</a>
+      <a class="nav-link " href="{{ url_for('profile') }}">{{session.Email}}</a>
+      <a class="nav-link " href="{{ url_for('logout') }}">LogOut</a>
+</div>
+
+{% endblock %}
+
+
+{% block body %}
+<div class="container ">
+    <div class="row ">
+        <div class="col-sm-12 mb-5">
+          <div class="card text-bg-light">
+            <div class="card-body">
+              <h5 class="card-title">Laptop</h5>
+              <p class="card-text">Buy laptops on Newark-IT at best rates</p>
+              <a href="{{ url_for('laptop') }}" style="background-color: rgb(164, 25, 164)" class="btn btn-primary">Browse deals</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 mb-5">
+          <div class="card text-bg-light">
+            <div class="card-body">
+              <h5 class="card-title">Printer</h5>
+              <p class="card-text">Discover printer on Newark-IT at a great price. We offer great selection of printers</p>
+              <a href="{{ url_for('printer') }}" style="background-color: rgb(164, 25, 164)" class="btn btn-primary">Browse deals</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 mb-5  ">
+          <div class="card text-bg-light">
+            <div class="card-body">
+              <h5 class="card-title">Desktop</h5>
+              <p class="card-text">Shop for home office desktop at Newark-IT. Browse a wide variety of desktops</p>
+              <a href="{{ url_for('desktop') }}" style="background-color: rgb(164, 25, 164)" class="btn btn-primary">Browse deals</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+    </div>
+{% endblock %}

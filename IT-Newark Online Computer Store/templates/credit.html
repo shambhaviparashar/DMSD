@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}Select credit{% endblock %}
+
+{% block active %}
+{% endblock %}
+
+
+{% block body %}
+	<section class="h-100" >
+        <div class="container h-100 py-5">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-10">
+      
+              {% for row in credit %}
+              <div class="card rounded-3 mb-4">
+                <div class="card-body p-4">
+                  <div class="row d-flex justify-content-between align-items-center">
+                    
+                    <div class="col-md-12 col-lg-12 col-xl-12">
+                        <h1 class="lead fw-normal mb-2"> Card Number: {{row['CardNumber']}}</h1>
+                      </div>
+                      <div class="col-md-3 col-lg-3 col-xl-3">
+                        <p><span class="text-muted">Name on card: </span>{{row['CardOwnerName']}} </p>
+                        <p><span class="text-muted">Billing Address: </span>{{row['BillingAddress']}} </p>
+                        <p><span class="text-muted">Type:</span> {{row['CardType']}}   <span class="text-muted"> Date: </span>{{row['ExpDate']}} </p>
+                      </div>
+                  
+                    <div class="col-md-3 col-lg-3 col-xl-3 ">
+                      <a class="btn btn-secondary " style="background-color: rgb(164, 25, 164)" href="/ordercomplete/{{row['CardNumber']}}">Select</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+      
+              {% endfor %}
+              <a class="btn btn-secondary col-12" style="background-color: rgb(164, 25, 164)" href="new_credit">Add new card</a>
+            </div>
+          </div>
+        </div>
+      </section>
+      {% endblock %}

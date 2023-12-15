@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block title %}Profile{% endblock %}
+
+{% block active %}
+<div class="navbar-nav nav-tabs">
+  <a class="nav-link " aria-current="page" href="{{ url_for('home') }}">All Products</a>
+  <a class="nav-link " href="{{ url_for('laptop') }}">Laptop</a>
+  <a class="nav-link " href="{{ url_for('printer') }}">Printer</a>
+  <a class="nav-link " href="{{ url_for('desktop') }}">Desktop</a>
+</div>
+<div class="navbar-nav nav-tabs ms-auto">
+    <a class="nav-link " href="{{ url_for('history') }}">Purchase History</a>
+    <a class="nav-link " href="{{ url_for('cart') }}">My Cart</a>
+    <a class="nav-link active" href="{{ url_for('profile') }}">{{session.Email}}</a>
+    <a class="nav-link " href="{{ url_for('logout') }}">LogOut</a>
+</div>
+
+{% endblock %}
+
+
+{% block body %}
+<div class="container-xl px-4 mt-4">
+  <!-- Account page navigation-->
+ 
+
+  <div class="row">
+      
+      <div class="col-xl-">
+          <!-- Account details card-->
+          <div class="card mb-4">
+              <div class="card-header">Account Details</div>
+              <div class="card-body">
+                  <form>
+                      
+                      <!-- Form Row-->
+                      <div class="row gx-3 mb-3">
+                          <!-- Form Group (first name)-->
+                          <div class="col-md-6">
+                              <label class="small mb-1" for="Fname">First name</label>
+                              <input class="form-control" id="Fname" name="Fname" type="text" placeholder="{{account['Fname']}}" value="{{account['Fname']}}">
+                          </div>
+                          <!-- Form Group (last name)-->
+                          <div class="col-md-6">
+                              <label class="small mb-1" for="Lname">Last name</label>
+                              <input class="form-control" id="Lname" name="Lname"  type="text" placeholder="{{account['Lname']}}" value="{{account['Lname']}}">
+                          </div>
+                      </div>
+                      <!-- Form Row        -->
+                    
+                      <!-- Form Group (email address)-->
+                      <div class="mb-3">
+                          <label class="small mb-1" for="Email">Email address</label>
+                          <input class="form-control" id="Email" name="Email" type="email" placeholder="{{account['Email']}}" value="{{account['Email']}}">
+                      </div>
+                      <!-- Form Row-->
+                      <div class="row gx-3 mb-3">
+                          <div class="col-md-12">
+                              <label class="small mb-1" for="Address">Address</label>
+                              <input class="form-control" id="Address" name="Address" type="text" placeholder="{{account['Address']}}" value="{{account['Address']}}">
+                          </div>
+                      </div>
+                      <div class="row gx-3 mb-3">
+                          <!-- Form Group (phone number)-->
+                          <div class="col-md-6">
+                              <label class="small mb-1" for="phone">Phone number</label>
+                              <input class="form-control" id="phone" name="phone" type="tel" placeholder="{{account['Phone']}}" value="{{account['Phone']}}">
+                          </div>
+                      
+                          
+                      </div>
+                      
+                     
+                      
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+{% endblock %}

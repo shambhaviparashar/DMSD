@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}Select credit{% endblock %}
+
+{% block active %}
+{% endblock %}
+
+
+{% block body %}
+<div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <div class="card my-5">
+
+          <form class="card-body p-lg-5" style="background-color: #fbfaf9;" action="{{ url_for('addaddress') }}" method="post">
+            
+                <div class="mb-3">
+                  <input type="text" class="form-control" placeholder="Name for shipping address" id="SAName" name="SAName">
+                </div>
+                <div class="mb-3">
+                  <input type="text" class="form-control" placeholder="Recipient Name"  id="RecipientName" name="RecipientName">
+                </div>
+                <div class="mb-3">
+                    <input type="text" class="form-control" placeholder="Street Number" id="SNumber" name="SNumber">
+                  </div>
+                  <div class="mb-3">
+                    <input type="text" class="form-control" placeholder="Street"  id="Street" name="Street">
+                  </div>
+                  <div class="mb-3">
+                    <input type="text" class="form-control" placeholder="Zip Code" id="Zip" name="Zip">
+                  </div>
+                  <div class="mb-3">
+                    <input type="text" class="form-control" placeholder="City"  id="City" name="City">
+                  </div>
+                  <div class="mb-3">
+                    <input type="text" class="form-control" placeholder="State" id="State" name="State">
+                  </div>
+                  <div class="mb-3">
+                    <input type="text" class="form-control" placeholder="Country"  id="Country" name="Country">
+                  </div>
+              
+
+           
+
+            <div class="text-center"><button type="submit" style="background-color: rgb(164, 25, 164)" class="btn-primary btn btn-color px-5 w-50">Add</button></div>
+          </form>
+          
+        </div>
+
+      </div>
+    </div>
+  </div>
+{% endblock %}

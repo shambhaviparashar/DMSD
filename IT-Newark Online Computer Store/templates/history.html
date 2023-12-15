@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}Purchase History{% endblock %}
+
+{% block active %}
+<div class="navbar-nav nav-tabs">
+    <a class="nav-link " aria-current="page" href="{{ url_for('home') }}">All Products</a>
+    <a class="nav-link " href="{{ url_for('laptop') }}">Laptop</a>
+    <a class="nav-link " href="{{ url_for('printer') }}">Printer</a>
+    <a class="nav-link " href="{{ url_for('desktop') }}">Desktop</a>
+  </div>
+  <div class="navbar-nav nav-tabs ms-auto">
+      <a class="nav-link active" href="{{ url_for('history') }}">Purchase History</a>
+      <a class="nav-link " href="{{ url_for('cart') }}">My Cart</a>
+      <a class="nav-link " href="{{ url_for('profile') }}">{{session.Email}}</a>
+      <a class="nav-link " href="{{ url_for('logout') }}">LogOut</a>
+</div>
+
+
+{% endblock %}
+
+
+{% block body %}
+{% for row in history %}
+<div class="card container mb-3">
+  <div class="card-header">
+    Transaction ID: {{row['CartID']}}
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Total Price: {{row['TotalAmount']}}</h5>
+    <p class="card-text">Shipping Address: {{row['SAName']}}</p>
+    <p class="card-text">Transaction Date: {{row['TDate']}}</p>
+    <p class="card-text">Status: {{row['TStatus']}}</p>
+  </div>
+</div>
+{% endfor %}
+{% endblock %}
